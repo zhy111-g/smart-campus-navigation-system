@@ -33,19 +33,18 @@ npm run serve
 
 也可双击 `启动.bat`（需已配置好 `dev-tools\env.bat`）。
 
-## 发布到 EdgeOne Pages（推荐国内访问）
+## 发布到 EdgeOne Pages（推荐，用 Gitee）
 
-1. 打开腾讯云 EdgeOne Pages，选择 **导入 Git 仓库**（GitHub 或 Gitee）。
-2. 选择仓库：`smart-campus-navigation-system`，分支：`main`。
-3. 构建配置：
+1. 打开腾讯云 EdgeOne Pages → **导入 Git 仓库** → 选 **Gitee** 并授权。
+2. 仓库选：`zzz111hhh/smart-campus-navigation-system`，分支：`main`。
+3. 构建配置填：
    - **安装命令**：`npm install --registry=https://registry.npmmirror.com`
    - **构建命令**：`npm run build`
    - **输出目录**：`dist`
-   - **环境变量**（可选）：`PUBLIC_PATH=/`（默认已是根路径，一般不用填）
-4. 开始部署，完成后用控制台给出的域名访问。
+   - 环境变量一般不用填（默认 `PUBLIC_PATH=/`）
+4. 开始部署，用控制台给出的域名访问。
 
-> 默认 `npm run build` 的 `publicPath` 为 `/`，适合 EdgeOne。  
-> 若仍要更新 GitHub Pages 子路径站点，本地执行 `npm run build:gh` 再推 `gh-pages`。
+> 不要选 `gh-pages` 分支（那是给 GitHub Pages 用的静态成品）。EdgeOne 要从 `main` 源码自己构建。
 
 ## 发布到 GitHub Pages
 
