@@ -235,10 +235,10 @@
     {
       "id": 106,
       "campusId": 2,
-      "name": "一食堂路口",
-      "x": 460,
-      "y": 260,
-      "type": "JUNCTION"
+      "name": "一食堂",
+      "x": 440,
+      "y": 280,
+      "type": "BUILDING"
     },
     {
       "id": 107,
@@ -558,6 +558,38 @@
       "name": "北区洗浴中心",
       "x": 500,
       "y": 320,
+      "type": "BUILDING"
+    },
+    {
+      "id": 147,
+      "campusId": 2,
+      "name": "二食堂",
+      "x": 520,
+      "y": 280,
+      "type": "BUILDING"
+    },
+    {
+      "id": 148,
+      "campusId": 2,
+      "name": "三食堂",
+      "x": 440,
+      "y": 210,
+      "type": "BUILDING"
+    },
+    {
+      "id": 149,
+      "campusId": 2,
+      "name": "四食堂",
+      "x": 520,
+      "y": 210,
+      "type": "BUILDING"
+    },
+    {
+      "id": 150,
+      "campusId": 2,
+      "name": "面包房",
+      "x": 560,
+      "y": 300,
       "type": "BUILDING"
     }
   ],
@@ -901,15 +933,31 @@
     {
       "campusId": 2,
       "fromNodeId": 144,
-      "toNodeId": 106,
-      "distance": 160,
+      "toNodeId": 148,
+      "distance": 120,
       "walkable": 1,
       "isOverpass": 0
     },
     {
       "campusId": 2,
-      "fromNodeId": 106,
-      "toNodeId": 146,
+      "fromNodeId": 148,
+      "toNodeId": 149,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 148,
+      "toNodeId": 106,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 149,
+      "toNodeId": 147,
       "distance": 80,
       "walkable": 1,
       "isOverpass": 0
@@ -917,8 +965,48 @@
     {
       "campusId": 2,
       "fromNodeId": 106,
+      "toNodeId": 147,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 106,
+      "toNodeId": 146,
+      "distance": 70,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 147,
+      "toNodeId": 146,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 147,
+      "toNodeId": 150,
+      "distance": 50,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 150,
+      "toNodeId": 146,
+      "distance": 40,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 106,
       "toNodeId": 130,
-      "distance": 150,
+      "distance": 140,
       "walkable": 1,
       "isOverpass": 0
     },
@@ -966,7 +1054,7 @@
       "campusId": 2,
       "fromNodeId": 105,
       "toNodeId": 106,
-      "distance": 200,
+      "distance": 180,
       "walkable": 1,
       "isOverpass": 0
     },
@@ -1014,7 +1102,7 @@
       "campusId": 2,
       "fromNodeId": 106,
       "toNodeId": 139,
-      "distance": 180,
+      "distance": 170,
       "walkable": 1,
       "isOverpass": 0
     },
@@ -1474,10 +1562,42 @@
       "name": "一食堂",
       "category": "餐饮",
       "nodeId": 106,
-      "description": "第一、第二食堂一带"
+      "description": "第一食堂"
     },
     {
       "id": 27,
+      "campusId": 2,
+      "name": "二食堂",
+      "category": "餐饮",
+      "nodeId": 147,
+      "description": "第二食堂"
+    },
+    {
+      "id": 28,
+      "campusId": 2,
+      "name": "三食堂",
+      "category": "餐饮",
+      "nodeId": 148,
+      "description": "第三食堂"
+    },
+    {
+      "id": 29,
+      "campusId": 2,
+      "name": "四食堂",
+      "category": "餐饮",
+      "nodeId": 149,
+      "description": "第四食堂"
+    },
+    {
+      "id": 30,
+      "campusId": 2,
+      "name": "面包房",
+      "category": "餐饮",
+      "nodeId": 150,
+      "description": "面包房"
+    },
+    {
+      "id": 31,
       "campusId": 2,
       "name": "育才楼",
       "category": "教学",
@@ -1485,7 +1605,7 @@
       "description": "育才楼"
     },
     {
-      "id": 28,
+      "id": 32,
       "campusId": 2,
       "name": "修德楼",
       "category": "教学",
@@ -1493,7 +1613,7 @@
       "description": "修德楼"
     },
     {
-      "id": 29,
+      "id": 33,
       "campusId": 2,
       "name": "科学楼",
       "category": "教学",
@@ -1501,7 +1621,7 @@
       "description": "科学楼"
     },
     {
-      "id": 30,
+      "id": 34,
       "campusId": 2,
       "name": "积雅楼",
       "category": "教学",
@@ -1509,15 +1629,15 @@
       "description": "积雅楼"
     },
     {
-      "id": 31,
+      "id": 35,
       "campusId": 2,
       "name": "学生活动中心",
       "category": "服务",
       "nodeId": 145,
-      "description": "学生活动中心"
+      "description": "学生活动中心（含超市）"
     },
     {
-      "id": 32,
+      "id": 36,
       "campusId": 2,
       "name": "五食堂",
       "category": "餐饮",
@@ -1525,7 +1645,7 @@
       "description": "第五食堂"
     },
     {
-      "id": 33,
+      "id": 37,
       "campusId": 2,
       "name": "校医院",
       "category": "服务",
@@ -1533,7 +1653,7 @@
       "description": "校医院"
     },
     {
-      "id": 34,
+      "id": 38,
       "campusId": 2,
       "name": "北区洗浴中心",
       "category": "服务",
@@ -1541,7 +1661,7 @@
       "description": "北区洗浴中心"
     },
     {
-      "id": 35,
+      "id": 39,
       "campusId": 2,
       "name": "1号楼",
       "category": "宿舍",
@@ -1549,7 +1669,7 @@
       "description": "一号宿舍楼"
     },
     {
-      "id": 36,
+      "id": 40,
       "campusId": 2,
       "name": "2号楼",
       "category": "宿舍",
@@ -1557,7 +1677,7 @@
       "description": "二号宿舍楼"
     },
     {
-      "id": 37,
+      "id": 41,
       "campusId": 2,
       "name": "3号楼",
       "category": "宿舍",
@@ -1565,7 +1685,7 @@
       "description": "三号宿舍楼"
     },
     {
-      "id": 38,
+      "id": 42,
       "campusId": 2,
       "name": "4号楼",
       "category": "宿舍",
@@ -1573,7 +1693,7 @@
       "description": "四号宿舍楼"
     },
     {
-      "id": 39,
+      "id": 43,
       "campusId": 2,
       "name": "5号楼",
       "category": "宿舍",
@@ -1581,7 +1701,7 @@
       "description": "五号宿舍楼"
     },
     {
-      "id": 40,
+      "id": 44,
       "campusId": 2,
       "name": "6号楼",
       "category": "宿舍",
@@ -1589,7 +1709,7 @@
       "description": "六号宿舍楼"
     },
     {
-      "id": 41,
+      "id": 45,
       "campusId": 2,
       "name": "7号楼",
       "category": "宿舍",
@@ -1597,7 +1717,7 @@
       "description": "七号宿舍楼"
     },
     {
-      "id": 42,
+      "id": 46,
       "campusId": 2,
       "name": "8号楼",
       "category": "宿舍",
@@ -1605,7 +1725,7 @@
       "description": "八号宿舍楼"
     },
     {
-      "id": 43,
+      "id": 47,
       "campusId": 2,
       "name": "9号楼",
       "category": "宿舍",
@@ -1613,7 +1733,7 @@
       "description": "九号宿舍楼"
     },
     {
-      "id": 44,
+      "id": 48,
       "campusId": 2,
       "name": "10号楼",
       "category": "宿舍",
@@ -1621,7 +1741,7 @@
       "description": "十号宿舍楼"
     },
     {
-      "id": 45,
+      "id": 49,
       "campusId": 2,
       "name": "11号楼",
       "category": "宿舍",
@@ -1629,7 +1749,7 @@
       "description": "十一号宿舍楼"
     },
     {
-      "id": 46,
+      "id": 50,
       "campusId": 2,
       "name": "16号楼",
       "category": "宿舍",
@@ -1637,7 +1757,7 @@
       "description": "十六号宿舍楼"
     },
     {
-      "id": 47,
+      "id": 51,
       "campusId": 2,
       "name": "17号楼",
       "category": "宿舍",
@@ -1645,7 +1765,7 @@
       "description": "十七号宿舍楼"
     },
     {
-      "id": 48,
+      "id": 52,
       "campusId": 2,
       "name": "18号楼",
       "category": "宿舍",
@@ -1653,7 +1773,7 @@
       "description": "十八号宿舍楼"
     },
     {
-      "id": 49,
+      "id": 53,
       "campusId": 2,
       "name": "敏行楼",
       "category": "宿舍",
@@ -1661,7 +1781,7 @@
       "description": "敏行宿舍楼"
     },
     {
-      "id": 50,
+      "id": 54,
       "campusId": 2,
       "name": "慎行楼",
       "category": "宿舍",
@@ -1669,7 +1789,7 @@
       "description": "慎行宿舍楼"
     },
     {
-      "id": 51,
+      "id": 55,
       "campusId": 2,
       "name": "笃行楼",
       "category": "宿舍",
@@ -1677,7 +1797,7 @@
       "description": "笃行宿舍楼"
     },
     {
-      "id": 52,
+      "id": 56,
       "campusId": 2,
       "name": "知行楼",
       "category": "宿舍",
@@ -1685,7 +1805,7 @@
       "description": "知行宿舍楼"
     },
     {
-      "id": 53,
+      "id": 57,
       "campusId": 2,
       "name": "悟行楼",
       "category": "宿舍",
@@ -1693,7 +1813,7 @@
       "description": "悟行宿舍楼"
     },
     {
-      "id": 54,
+      "id": 58,
       "campusId": 2,
       "name": "图书馆西区",
       "category": "教学",
@@ -1701,7 +1821,7 @@
       "description": "图书馆西区"
     },
     {
-      "id": 55,
+      "id": 59,
       "campusId": 2,
       "name": "图书馆东区",
       "category": "教学",
@@ -1709,7 +1829,7 @@
       "description": "图书馆东区"
     },
     {
-      "id": 56,
+      "id": 60,
       "campusId": 2,
       "name": "博学楼",
       "category": "教学",
@@ -1717,7 +1837,7 @@
       "description": "博学楼"
     },
     {
-      "id": 57,
+      "id": 61,
       "campusId": 2,
       "name": "晋阳街天桥北口",
       "category": "交通",
@@ -1725,7 +1845,7 @@
       "description": "跨晋阳街人行天桥北侧"
     },
     {
-      "id": 58,
+      "id": 62,
       "campusId": 2,
       "name": "晋阳街天桥南口",
       "category": "交通",
@@ -1733,7 +1853,7 @@
       "description": "跨晋阳街人行天桥南侧"
     },
     {
-      "id": 59,
+      "id": 63,
       "campusId": 2,
       "name": "立信楼",
       "category": "教学",
@@ -1741,7 +1861,7 @@
       "description": "立信楼"
     },
     {
-      "id": 60,
+      "id": 64,
       "campusId": 2,
       "name": "立信阶教",
       "category": "教学",
@@ -1749,7 +1869,7 @@
       "description": "立信阶梯教室"
     },
     {
-      "id": 61,
+      "id": 65,
       "campusId": 2,
       "name": "菜鸟驿站",
       "category": "服务",
@@ -1757,7 +1877,7 @@
       "description": "快递驿站"
     },
     {
-      "id": 62,
+      "id": 66,
       "campusId": 2,
       "name": "颖萱餐厅",
       "category": "餐饮",
@@ -1765,7 +1885,7 @@
       "description": "颖萱餐厅"
     },
     {
-      "id": 63,
+      "id": 67,
       "campusId": 2,
       "name": "南区洗浴中心",
       "category": "服务",
