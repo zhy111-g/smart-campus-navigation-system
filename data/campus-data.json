@@ -235,8 +235,8 @@
     {
       "id": 106,
       "campusId": 2,
-      "name": "一食堂",
-      "x": 440,
+      "name": "一二食堂",
+      "x": 470,
       "y": 280,
       "type": "BUILDING"
     },
@@ -556,31 +556,15 @@
       "id": 146,
       "campusId": 2,
       "name": "北区洗浴中心",
-      "x": 500,
-      "y": 320,
-      "type": "BUILDING"
-    },
-    {
-      "id": 147,
-      "campusId": 2,
-      "name": "二食堂",
       "x": 520,
-      "y": 280,
+      "y": 320,
       "type": "BUILDING"
     },
     {
       "id": 148,
       "campusId": 2,
-      "name": "三食堂",
-      "x": 440,
-      "y": 210,
-      "type": "BUILDING"
-    },
-    {
-      "id": 149,
-      "campusId": 2,
-      "name": "四食堂",
-      "x": 520,
+      "name": "三四食堂",
+      "x": 470,
       "y": 210,
       "type": "BUILDING"
     },
@@ -941,7 +925,15 @@
     {
       "campusId": 2,
       "fromNodeId": 148,
-      "toNodeId": 149,
+      "toNodeId": 106,
+      "distance": 90,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 106,
+      "toNodeId": 146,
       "distance": 80,
       "walkable": 1,
       "isOverpass": 0
@@ -949,48 +941,16 @@
     {
       "campusId": 2,
       "fromNodeId": 148,
-      "toNodeId": 106,
-      "distance": 80,
-      "walkable": 1,
-      "isOverpass": 0
-    },
-    {
-      "campusId": 2,
-      "fromNodeId": 149,
-      "toNodeId": 147,
-      "distance": 80,
+      "toNodeId": 146,
+      "distance": 120,
       "walkable": 1,
       "isOverpass": 0
     },
     {
       "campusId": 2,
       "fromNodeId": 106,
-      "toNodeId": 147,
-      "distance": 80,
-      "walkable": 1,
-      "isOverpass": 0
-    },
-    {
-      "campusId": 2,
-      "fromNodeId": 106,
-      "toNodeId": 146,
-      "distance": 70,
-      "walkable": 1,
-      "isOverpass": 0
-    },
-    {
-      "campusId": 2,
-      "fromNodeId": 147,
-      "toNodeId": 146,
-      "distance": 60,
-      "walkable": 1,
-      "isOverpass": 0
-    },
-    {
-      "campusId": 2,
-      "fromNodeId": 147,
       "toNodeId": 150,
-      "distance": 50,
+      "distance": 110,
       "walkable": 1,
       "isOverpass": 0
     },
@@ -998,7 +958,7 @@
       "campusId": 2,
       "fromNodeId": 150,
       "toNodeId": 146,
-      "distance": 40,
+      "distance": 50,
       "walkable": 1,
       "isOverpass": 0
     },
@@ -1562,15 +1522,15 @@
       "name": "一食堂",
       "category": "餐饮",
       "nodeId": 106,
-      "description": "第一食堂"
+      "description": "一二食堂一层"
     },
     {
       "id": 27,
       "campusId": 2,
       "name": "二食堂",
       "category": "餐饮",
-      "nodeId": 147,
-      "description": "第二食堂"
+      "nodeId": 106,
+      "description": "一二食堂二层"
     },
     {
       "id": 28,
@@ -1578,15 +1538,15 @@
       "name": "三食堂",
       "category": "餐饮",
       "nodeId": 148,
-      "description": "第三食堂"
+      "description": "三四食堂一层"
     },
     {
       "id": 29,
       "campusId": 2,
       "name": "四食堂",
       "category": "餐饮",
-      "nodeId": 149,
-      "description": "第四食堂"
+      "nodeId": 148,
+      "description": "三四食堂二层"
     },
     {
       "id": 30,
