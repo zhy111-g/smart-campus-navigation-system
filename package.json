@@ -1,0 +1,24 @@
+{
+  "name": "campus-navigator-pages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "校园智能路径导航辅助系统 V1.0 — 纯前端版（可托管 GitHub Pages）",
+  "scripts": {
+    "data": "node scripts/convert-data.js",
+    "serve": "npm run data && vue-cli-service serve",
+    "build": "npm run data && vue-cli-service build",
+    "build:pages": "npm run data && vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "element-ui": "^2.15.14",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  }
+}

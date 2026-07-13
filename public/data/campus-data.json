@@ -1,0 +1,1776 @@
+{
+  "campuses": [
+    {
+      "id": 1,
+      "name": "迎泽校区",
+      "mapWidth": 1000,
+      "mapHeight": 1000,
+      "jinyangY": null
+    },
+    {
+      "id": 2,
+      "name": "坞城校区",
+      "mapWidth": 1000,
+      "mapHeight": 1000,
+      "jinyangY": 620
+    }
+  ],
+  "nodes": [
+    {
+      "id": 1,
+      "campusId": 1,
+      "name": "西门",
+      "x": 80,
+      "y": 550,
+      "type": "GATE"
+    },
+    {
+      "id": 2,
+      "campusId": 1,
+      "name": "1号楼路口",
+      "x": 120,
+      "y": 200,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 3,
+      "campusId": 1,
+      "name": "2号楼路口",
+      "x": 120,
+      "y": 320,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 4,
+      "campusId": 1,
+      "name": "3号楼路口",
+      "x": 120,
+      "y": 460,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 5,
+      "campusId": 1,
+      "name": "4号楼路口",
+      "x": 120,
+      "y": 600,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 6,
+      "campusId": 1,
+      "name": "西侧主干道",
+      "x": 200,
+      "y": 550,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 7,
+      "campusId": 1,
+      "name": "5号楼",
+      "x": 220,
+      "y": 780,
+      "type": "BUILDING"
+    },
+    {
+      "id": 8,
+      "campusId": 1,
+      "name": "8号楼",
+      "x": 300,
+      "y": 860,
+      "type": "BUILDING"
+    },
+    {
+      "id": 9,
+      "campusId": 1,
+      "name": "图书馆",
+      "x": 340,
+      "y": 700,
+      "type": "BUILDING"
+    },
+    {
+      "id": 10,
+      "campusId": 1,
+      "name": "中心广场",
+      "x": 500,
+      "y": 550,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 11,
+      "campusId": 1,
+      "name": "求真楼",
+      "x": 500,
+      "y": 420,
+      "type": "BUILDING"
+    },
+    {
+      "id": 12,
+      "campusId": 1,
+      "name": "6号楼路口",
+      "x": 400,
+      "y": 320,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 13,
+      "campusId": 1,
+      "name": "北侧路口",
+      "x": 500,
+      "y": 200,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 14,
+      "campusId": 1,
+      "name": "9号楼",
+      "x": 460,
+      "y": 160,
+      "type": "BUILDING"
+    },
+    {
+      "id": 15,
+      "campusId": 1,
+      "name": "7号楼",
+      "x": 560,
+      "y": 280,
+      "type": "BUILDING"
+    },
+    {
+      "id": 16,
+      "campusId": 1,
+      "name": "东侧主干道",
+      "x": 760,
+      "y": 500,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 17,
+      "campusId": 1,
+      "name": "六七食堂",
+      "x": 800,
+      "y": 140,
+      "type": "BUILDING"
+    },
+    {
+      "id": 18,
+      "campusId": 1,
+      "name": "操场",
+      "x": 900,
+      "y": 400,
+      "type": "BUILDING"
+    },
+    {
+      "id": 19,
+      "campusId": 1,
+      "name": "南门",
+      "x": 500,
+      "y": 920,
+      "type": "GATE"
+    },
+    {
+      "id": 20,
+      "campusId": 1,
+      "name": "信息中心",
+      "x": 640,
+      "y": 820,
+      "type": "BUILDING"
+    },
+    {
+      "id": 21,
+      "campusId": 1,
+      "name": "医务室路口",
+      "x": 300,
+      "y": 640,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 22,
+      "campusId": 1,
+      "name": "洗浴中心",
+      "x": 540,
+      "y": 160,
+      "type": "BUILDING"
+    },
+    {
+      "id": 101,
+      "campusId": 2,
+      "name": "北二门",
+      "x": 380,
+      "y": 45,
+      "type": "GATE"
+    },
+    {
+      "id": 102,
+      "campusId": 2,
+      "name": "西一门",
+      "x": 55,
+      "y": 280,
+      "type": "GATE"
+    },
+    {
+      "id": 103,
+      "campusId": 2,
+      "name": "游泳馆",
+      "x": 130,
+      "y": 180,
+      "type": "BUILDING"
+    },
+    {
+      "id": 104,
+      "campusId": 2,
+      "name": "体育馆",
+      "x": 180,
+      "y": 280,
+      "type": "BUILDING"
+    },
+    {
+      "id": 105,
+      "campusId": 2,
+      "name": "北区操场",
+      "x": 300,
+      "y": 340,
+      "type": "BUILDING"
+    },
+    {
+      "id": 106,
+      "campusId": 2,
+      "name": "一食堂路口",
+      "x": 460,
+      "y": 260,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 107,
+      "campusId": 2,
+      "name": "3号楼",
+      "x": 490,
+      "y": 460,
+      "type": "BUILDING"
+    },
+    {
+      "id": 108,
+      "campusId": 2,
+      "name": "敏行楼",
+      "x": 620,
+      "y": 200,
+      "type": "BUILDING"
+    },
+    {
+      "id": 109,
+      "campusId": 2,
+      "name": "图书馆西区",
+      "x": 920,
+      "y": 300,
+      "type": "BUILDING"
+    },
+    {
+      "id": 110,
+      "campusId": 2,
+      "name": "图书馆东区",
+      "x": 970,
+      "y": 300,
+      "type": "BUILDING"
+    },
+    {
+      "id": 111,
+      "campusId": 2,
+      "name": "博学楼",
+      "x": 780,
+      "y": 500,
+      "type": "BUILDING"
+    },
+    {
+      "id": 112,
+      "campusId": 2,
+      "name": "南二门",
+      "x": 820,
+      "y": 560,
+      "type": "GATE"
+    },
+    {
+      "id": 113,
+      "campusId": 2,
+      "name": "天桥北口",
+      "x": 380,
+      "y": 595,
+      "type": "OVERPASS"
+    },
+    {
+      "id": 114,
+      "campusId": 2,
+      "name": "科学楼",
+      "x": 580,
+      "y": 70,
+      "type": "BUILDING"
+    },
+    {
+      "id": 115,
+      "campusId": 2,
+      "name": "修德楼",
+      "x": 480,
+      "y": 70,
+      "type": "BUILDING"
+    },
+    {
+      "id": 116,
+      "campusId": 2,
+      "name": "天桥南口",
+      "x": 380,
+      "y": 655,
+      "type": "OVERPASS"
+    },
+    {
+      "id": 117,
+      "campusId": 2,
+      "name": "西二门",
+      "x": 50,
+      "y": 900,
+      "type": "GATE"
+    },
+    {
+      "id": 118,
+      "campusId": 2,
+      "name": "立信楼",
+      "x": 360,
+      "y": 900,
+      "type": "BUILDING"
+    },
+    {
+      "id": 119,
+      "campusId": 2,
+      "name": "立信阶教",
+      "x": 480,
+      "y": 920,
+      "type": "BUILDING"
+    },
+    {
+      "id": 120,
+      "campusId": 2,
+      "name": "9号楼",
+      "x": 100,
+      "y": 700,
+      "type": "BUILDING"
+    },
+    {
+      "id": 121,
+      "campusId": 2,
+      "name": "南区路口",
+      "x": 380,
+      "y": 760,
+      "type": "JUNCTION"
+    },
+    {
+      "id": 122,
+      "campusId": 2,
+      "name": "菜鸟驿站",
+      "x": 400,
+      "y": 820,
+      "type": "BUILDING"
+    },
+    {
+      "id": 123,
+      "campusId": 2,
+      "name": "颖萱餐厅",
+      "x": 420,
+      "y": 700,
+      "type": "BUILDING"
+    },
+    {
+      "id": 124,
+      "campusId": 2,
+      "name": "10号楼",
+      "x": 100,
+      "y": 780,
+      "type": "BUILDING"
+    },
+    {
+      "id": 125,
+      "campusId": 2,
+      "name": "五食堂",
+      "x": 820,
+      "y": 55,
+      "type": "BUILDING"
+    },
+    {
+      "id": 126,
+      "campusId": 2,
+      "name": "校医院",
+      "x": 820,
+      "y": 140,
+      "type": "BUILDING"
+    },
+    {
+      "id": 127,
+      "campusId": 2,
+      "name": "8号楼",
+      "x": 300,
+      "y": 700,
+      "type": "BUILDING"
+    },
+    {
+      "id": 128,
+      "campusId": 2,
+      "name": "11号楼",
+      "x": 160,
+      "y": 840,
+      "type": "BUILDING"
+    },
+    {
+      "id": 129,
+      "campusId": 2,
+      "name": "南区洗浴中心",
+      "x": 260,
+      "y": 960,
+      "type": "BUILDING"
+    },
+    {
+      "id": 130,
+      "campusId": 2,
+      "name": "1号楼",
+      "x": 460,
+      "y": 400,
+      "type": "BUILDING"
+    },
+    {
+      "id": 131,
+      "campusId": 2,
+      "name": "2号楼",
+      "x": 520,
+      "y": 400,
+      "type": "BUILDING"
+    },
+    {
+      "id": 132,
+      "campusId": 2,
+      "name": "4号楼",
+      "x": 420,
+      "y": 560,
+      "type": "BUILDING"
+    },
+    {
+      "id": 133,
+      "campusId": 2,
+      "name": "5号楼",
+      "x": 270,
+      "y": 560,
+      "type": "BUILDING"
+    },
+    {
+      "id": 134,
+      "campusId": 2,
+      "name": "6号楼",
+      "x": 120,
+      "y": 560,
+      "type": "BUILDING"
+    },
+    {
+      "id": 135,
+      "campusId": 2,
+      "name": "7号楼",
+      "x": 760,
+      "y": 140,
+      "type": "BUILDING"
+    },
+    {
+      "id": 136,
+      "campusId": 2,
+      "name": "16号楼",
+      "x": 800,
+      "y": 340,
+      "type": "BUILDING"
+    },
+    {
+      "id": 137,
+      "campusId": 2,
+      "name": "17号楼",
+      "x": 800,
+      "y": 280,
+      "type": "BUILDING"
+    },
+    {
+      "id": 138,
+      "campusId": 2,
+      "name": "18号楼",
+      "x": 800,
+      "y": 220,
+      "type": "BUILDING"
+    },
+    {
+      "id": 139,
+      "campusId": 2,
+      "name": "慎行楼",
+      "x": 620,
+      "y": 260,
+      "type": "BUILDING"
+    },
+    {
+      "id": 140,
+      "campusId": 2,
+      "name": "笃行楼",
+      "x": 620,
+      "y": 320,
+      "type": "BUILDING"
+    },
+    {
+      "id": 141,
+      "campusId": 2,
+      "name": "知行楼",
+      "x": 620,
+      "y": 380,
+      "type": "BUILDING"
+    },
+    {
+      "id": 142,
+      "campusId": 2,
+      "name": "悟行楼",
+      "x": 620,
+      "y": 440,
+      "type": "BUILDING"
+    },
+    {
+      "id": 143,
+      "campusId": 2,
+      "name": "育才楼",
+      "x": 200,
+      "y": 55,
+      "type": "BUILDING"
+    },
+    {
+      "id": 144,
+      "campusId": 2,
+      "name": "积雅楼",
+      "x": 360,
+      "y": 160,
+      "type": "BUILDING"
+    },
+    {
+      "id": 145,
+      "campusId": 2,
+      "name": "学生活动中心",
+      "x": 680,
+      "y": 55,
+      "type": "BUILDING"
+    },
+    {
+      "id": 146,
+      "campusId": 2,
+      "name": "北区洗浴中心",
+      "x": 500,
+      "y": 320,
+      "type": "BUILDING"
+    }
+  ],
+  "edges": [
+    {
+      "campusId": 1,
+      "fromNodeId": 1,
+      "toNodeId": 5,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 5,
+      "toNodeId": 6,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 6,
+      "toNodeId": 10,
+      "distance": 320,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 10,
+      "toNodeId": 19,
+      "distance": 380,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 19,
+      "toNodeId": 20,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 7,
+      "toNodeId": 8,
+      "distance": 90,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 8,
+      "toNodeId": 9,
+      "distance": 110,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 9,
+      "toNodeId": 21,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 21,
+      "toNodeId": 6,
+      "distance": 150,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 9,
+      "toNodeId": 10,
+      "distance": 200,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 10,
+      "toNodeId": 11,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 11,
+      "toNodeId": 12,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 12,
+      "toNodeId": 13,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 13,
+      "toNodeId": 14,
+      "distance": 70,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 13,
+      "toNodeId": 15,
+      "distance": 100,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 13,
+      "toNodeId": 22,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 10,
+      "toNodeId": 16,
+      "distance": 280,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 16,
+      "toNodeId": 17,
+      "distance": 420,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 16,
+      "toNodeId": 18,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 8,
+      "toNodeId": 19,
+      "distance": 220,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 6,
+      "toNodeId": 7,
+      "distance": 260,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 4,
+      "toNodeId": 5,
+      "distance": 130,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 3,
+      "toNodeId": 4,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 2,
+      "toNodeId": 3,
+      "distance": 130,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 1,
+      "toNodeId": 4,
+      "distance": 200,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 15,
+      "toNodeId": 16,
+      "distance": 240,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 1,
+      "fromNodeId": 22,
+      "toNodeId": 17,
+      "distance": 380,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 143,
+      "toNodeId": 101,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 101,
+      "toNodeId": 115,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 115,
+      "toNodeId": 114,
+      "distance": 100,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 114,
+      "toNodeId": 145,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 145,
+      "toNodeId": 125,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 101,
+      "toNodeId": 144,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 144,
+      "toNodeId": 105,
+      "distance": 200,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 143,
+      "toNodeId": 103,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 103,
+      "toNodeId": 104,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 104,
+      "toNodeId": 102,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 104,
+      "toNodeId": 105,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 105,
+      "toNodeId": 133,
+      "distance": 240,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 134,
+      "toNodeId": 133,
+      "distance": 150,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 133,
+      "toNodeId": 132,
+      "distance": 150,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 134,
+      "toNodeId": 102,
+      "distance": 280,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 144,
+      "toNodeId": 106,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 106,
+      "toNodeId": 146,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 106,
+      "toNodeId": 130,
+      "distance": 150,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 130,
+      "toNodeId": 131,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 131,
+      "toNodeId": 107,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 130,
+      "toNodeId": 107,
+      "distance": 90,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 107,
+      "toNodeId": 132,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 132,
+      "toNodeId": 113,
+      "distance": 50,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 105,
+      "toNodeId": 106,
+      "distance": 200,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 145,
+      "toNodeId": 108,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 108,
+      "toNodeId": 139,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 139,
+      "toNodeId": 140,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 140,
+      "toNodeId": 141,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 141,
+      "toNodeId": 142,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 106,
+      "toNodeId": 139,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 131,
+      "toNodeId": 141,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 142,
+      "toNodeId": 111,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 125,
+      "toNodeId": 135,
+      "distance": 100,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 135,
+      "toNodeId": 126,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 126,
+      "toNodeId": 138,
+      "distance": 100,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 138,
+      "toNodeId": 137,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 137,
+      "toNodeId": 136,
+      "distance": 60,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 136,
+      "toNodeId": 109,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 109,
+      "toNodeId": 110,
+      "distance": 50,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 136,
+      "toNodeId": 111,
+      "distance": 180,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 111,
+      "toNodeId": 112,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 108,
+      "toNodeId": 135,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 142,
+      "toNodeId": 136,
+      "distance": 200,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 113,
+      "toNodeId": 116,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 1
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 116,
+      "toNodeId": 121,
+      "distance": 110,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 121,
+      "toNodeId": 127,
+      "distance": 100,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 121,
+      "toNodeId": 123,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 127,
+      "toNodeId": 123,
+      "distance": 120,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 127,
+      "toNodeId": 120,
+      "distance": 200,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 120,
+      "toNodeId": 124,
+      "distance": 80,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 124,
+      "toNodeId": 128,
+      "distance": 90,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 123,
+      "toNodeId": 122,
+      "distance": 130,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 127,
+      "toNodeId": 122,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 122,
+      "toNodeId": 118,
+      "distance": 100,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 118,
+      "toNodeId": 119,
+      "distance": 130,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 128,
+      "toNodeId": 118,
+      "distance": 220,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 121,
+      "toNodeId": 118,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 117,
+      "toNodeId": 120,
+      "distance": 220,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 117,
+      "toNodeId": 129,
+      "distance": 160,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 129,
+      "toNodeId": 128,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    },
+    {
+      "campusId": 2,
+      "fromNodeId": 129,
+      "toNodeId": 118,
+      "distance": 140,
+      "walkable": 1,
+      "isOverpass": 0
+    }
+  ],
+  "pois": [
+    {
+      "id": 1,
+      "campusId": 1,
+      "name": "西门",
+      "category": "出入口",
+      "nodeId": 1,
+      "description": "迎泽校区西门"
+    },
+    {
+      "id": 2,
+      "campusId": 1,
+      "name": "南门",
+      "category": "出入口",
+      "nodeId": 19,
+      "description": "迎泽校区南门"
+    },
+    {
+      "id": 3,
+      "campusId": 1,
+      "name": "1号楼",
+      "category": "宿舍",
+      "nodeId": 2,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 4,
+      "campusId": 1,
+      "name": "2号楼",
+      "category": "宿舍",
+      "nodeId": 3,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 5,
+      "campusId": 1,
+      "name": "3号楼",
+      "category": "宿舍",
+      "nodeId": 4,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 6,
+      "campusId": 1,
+      "name": "4号楼",
+      "category": "宿舍",
+      "nodeId": 5,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 7,
+      "campusId": 1,
+      "name": "5号楼",
+      "category": "宿舍",
+      "nodeId": 7,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 8,
+      "campusId": 1,
+      "name": "8号楼",
+      "category": "宿舍",
+      "nodeId": 8,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 9,
+      "campusId": 1,
+      "name": "图书馆",
+      "category": "教学",
+      "nodeId": 9,
+      "description": "迎泽校区图书馆"
+    },
+    {
+      "id": 10,
+      "campusId": 1,
+      "name": "求真楼",
+      "category": "教学",
+      "nodeId": 11,
+      "description": "主要教学楼"
+    },
+    {
+      "id": 11,
+      "campusId": 1,
+      "name": "6号楼",
+      "category": "宿舍",
+      "nodeId": 12,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 12,
+      "campusId": 1,
+      "name": "9号楼",
+      "category": "宿舍",
+      "nodeId": 14,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 13,
+      "campusId": 1,
+      "name": "7号楼",
+      "category": "宿舍",
+      "nodeId": 15,
+      "description": "学生宿舍"
+    },
+    {
+      "id": 14,
+      "campusId": 1,
+      "name": "六七食堂",
+      "category": "餐饮",
+      "nodeId": 17,
+      "description": "第六、第七食堂"
+    },
+    {
+      "id": 15,
+      "campusId": 1,
+      "name": "操场",
+      "category": "运动",
+      "nodeId": 18,
+      "description": "田径运动场"
+    },
+    {
+      "id": 16,
+      "campusId": 1,
+      "name": "信息中心",
+      "category": "办公",
+      "nodeId": 20,
+      "description": "校园信息中心"
+    },
+    {
+      "id": 17,
+      "campusId": 1,
+      "name": "医务室",
+      "category": "服务",
+      "nodeId": 21,
+      "description": "校医务室"
+    },
+    {
+      "id": 18,
+      "campusId": 1,
+      "name": "洗浴中心",
+      "category": "服务",
+      "nodeId": 22,
+      "description": "洗浴中心"
+    },
+    {
+      "id": 19,
+      "campusId": 2,
+      "name": "北二门",
+      "category": "出入口",
+      "nodeId": 101,
+      "description": "坞城校区北二门"
+    },
+    {
+      "id": 20,
+      "campusId": 2,
+      "name": "西一门",
+      "category": "出入口",
+      "nodeId": 102,
+      "description": "坞城校区西一门"
+    },
+    {
+      "id": 21,
+      "campusId": 2,
+      "name": "西二门",
+      "category": "出入口",
+      "nodeId": 117,
+      "description": "坞城校区西二门"
+    },
+    {
+      "id": 22,
+      "campusId": 2,
+      "name": "南二门",
+      "category": "出入口",
+      "nodeId": 112,
+      "description": "坞城校区南二门"
+    },
+    {
+      "id": 23,
+      "campusId": 2,
+      "name": "游泳馆",
+      "category": "运动",
+      "nodeId": 103,
+      "description": "游泳馆"
+    },
+    {
+      "id": 24,
+      "campusId": 2,
+      "name": "体育馆",
+      "category": "运动",
+      "nodeId": 104,
+      "description": "体育馆"
+    },
+    {
+      "id": 25,
+      "campusId": 2,
+      "name": "北区操场",
+      "category": "运动",
+      "nodeId": 105,
+      "description": "北区田径场"
+    },
+    {
+      "id": 26,
+      "campusId": 2,
+      "name": "一食堂",
+      "category": "餐饮",
+      "nodeId": 106,
+      "description": "第一、第二食堂一带"
+    },
+    {
+      "id": 27,
+      "campusId": 2,
+      "name": "育才楼",
+      "category": "教学",
+      "nodeId": 143,
+      "description": "育才楼"
+    },
+    {
+      "id": 28,
+      "campusId": 2,
+      "name": "修德楼",
+      "category": "教学",
+      "nodeId": 115,
+      "description": "修德楼"
+    },
+    {
+      "id": 29,
+      "campusId": 2,
+      "name": "科学楼",
+      "category": "教学",
+      "nodeId": 114,
+      "description": "科学楼"
+    },
+    {
+      "id": 30,
+      "campusId": 2,
+      "name": "积雅楼",
+      "category": "教学",
+      "nodeId": 144,
+      "description": "积雅楼"
+    },
+    {
+      "id": 31,
+      "campusId": 2,
+      "name": "学生活动中心",
+      "category": "服务",
+      "nodeId": 145,
+      "description": "学生活动中心"
+    },
+    {
+      "id": 32,
+      "campusId": 2,
+      "name": "五食堂",
+      "category": "餐饮",
+      "nodeId": 125,
+      "description": "第五食堂"
+    },
+    {
+      "id": 33,
+      "campusId": 2,
+      "name": "校医院",
+      "category": "服务",
+      "nodeId": 126,
+      "description": "校医院"
+    },
+    {
+      "id": 34,
+      "campusId": 2,
+      "name": "北区洗浴中心",
+      "category": "服务",
+      "nodeId": 146,
+      "description": "北区洗浴中心"
+    },
+    {
+      "id": 35,
+      "campusId": 2,
+      "name": "1号楼",
+      "category": "宿舍",
+      "nodeId": 130,
+      "description": "一号宿舍楼"
+    },
+    {
+      "id": 36,
+      "campusId": 2,
+      "name": "2号楼",
+      "category": "宿舍",
+      "nodeId": 131,
+      "description": "二号宿舍楼"
+    },
+    {
+      "id": 37,
+      "campusId": 2,
+      "name": "3号楼",
+      "category": "宿舍",
+      "nodeId": 107,
+      "description": "三号宿舍楼"
+    },
+    {
+      "id": 38,
+      "campusId": 2,
+      "name": "4号楼",
+      "category": "宿舍",
+      "nodeId": 132,
+      "description": "四号宿舍楼"
+    },
+    {
+      "id": 39,
+      "campusId": 2,
+      "name": "5号楼",
+      "category": "宿舍",
+      "nodeId": 133,
+      "description": "五号宿舍楼"
+    },
+    {
+      "id": 40,
+      "campusId": 2,
+      "name": "6号楼",
+      "category": "宿舍",
+      "nodeId": 134,
+      "description": "六号宿舍楼"
+    },
+    {
+      "id": 41,
+      "campusId": 2,
+      "name": "7号楼",
+      "category": "宿舍",
+      "nodeId": 135,
+      "description": "七号宿舍楼"
+    },
+    {
+      "id": 42,
+      "campusId": 2,
+      "name": "8号楼",
+      "category": "宿舍",
+      "nodeId": 127,
+      "description": "八号宿舍楼"
+    },
+    {
+      "id": 43,
+      "campusId": 2,
+      "name": "9号楼",
+      "category": "宿舍",
+      "nodeId": 120,
+      "description": "九号宿舍楼"
+    },
+    {
+      "id": 44,
+      "campusId": 2,
+      "name": "10号楼",
+      "category": "宿舍",
+      "nodeId": 124,
+      "description": "十号宿舍楼"
+    },
+    {
+      "id": 45,
+      "campusId": 2,
+      "name": "11号楼",
+      "category": "宿舍",
+      "nodeId": 128,
+      "description": "十一号宿舍楼"
+    },
+    {
+      "id": 46,
+      "campusId": 2,
+      "name": "16号楼",
+      "category": "宿舍",
+      "nodeId": 136,
+      "description": "十六号宿舍楼"
+    },
+    {
+      "id": 47,
+      "campusId": 2,
+      "name": "17号楼",
+      "category": "宿舍",
+      "nodeId": 137,
+      "description": "十七号宿舍楼"
+    },
+    {
+      "id": 48,
+      "campusId": 2,
+      "name": "18号楼",
+      "category": "宿舍",
+      "nodeId": 138,
+      "description": "十八号宿舍楼"
+    },
+    {
+      "id": 49,
+      "campusId": 2,
+      "name": "敏行楼",
+      "category": "宿舍",
+      "nodeId": 108,
+      "description": "敏行宿舍楼"
+    },
+    {
+      "id": 50,
+      "campusId": 2,
+      "name": "慎行楼",
+      "category": "宿舍",
+      "nodeId": 139,
+      "description": "慎行宿舍楼"
+    },
+    {
+      "id": 51,
+      "campusId": 2,
+      "name": "笃行楼",
+      "category": "宿舍",
+      "nodeId": 140,
+      "description": "笃行宿舍楼"
+    },
+    {
+      "id": 52,
+      "campusId": 2,
+      "name": "知行楼",
+      "category": "宿舍",
+      "nodeId": 141,
+      "description": "知行宿舍楼"
+    },
+    {
+      "id": 53,
+      "campusId": 2,
+      "name": "悟行楼",
+      "category": "宿舍",
+      "nodeId": 142,
+      "description": "悟行宿舍楼"
+    },
+    {
+      "id": 54,
+      "campusId": 2,
+      "name": "图书馆西区",
+      "category": "教学",
+      "nodeId": 109,
+      "description": "图书馆西区"
+    },
+    {
+      "id": 55,
+      "campusId": 2,
+      "name": "图书馆东区",
+      "category": "教学",
+      "nodeId": 110,
+      "description": "图书馆东区"
+    },
+    {
+      "id": 56,
+      "campusId": 2,
+      "name": "博学楼",
+      "category": "教学",
+      "nodeId": 111,
+      "description": "博学楼"
+    },
+    {
+      "id": 57,
+      "campusId": 2,
+      "name": "晋阳街天桥北口",
+      "category": "交通",
+      "nodeId": 113,
+      "description": "跨晋阳街人行天桥北侧"
+    },
+    {
+      "id": 58,
+      "campusId": 2,
+      "name": "晋阳街天桥南口",
+      "category": "交通",
+      "nodeId": 116,
+      "description": "跨晋阳街人行天桥南侧"
+    },
+    {
+      "id": 59,
+      "campusId": 2,
+      "name": "立信楼",
+      "category": "教学",
+      "nodeId": 118,
+      "description": "立信楼"
+    },
+    {
+      "id": 60,
+      "campusId": 2,
+      "name": "立信阶教",
+      "category": "教学",
+      "nodeId": 119,
+      "description": "立信阶梯教室"
+    },
+    {
+      "id": 61,
+      "campusId": 2,
+      "name": "菜鸟驿站",
+      "category": "服务",
+      "nodeId": 122,
+      "description": "快递驿站"
+    },
+    {
+      "id": 62,
+      "campusId": 2,
+      "name": "颖萱餐厅",
+      "category": "餐饮",
+      "nodeId": 123,
+      "description": "颖萱餐厅"
+    },
+    {
+      "id": 63,
+      "campusId": 2,
+      "name": "南区洗浴中心",
+      "category": "服务",
+      "nodeId": 129,
+      "description": "南区洗浴中心"
+    }
+  ]
+}
