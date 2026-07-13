@@ -33,27 +33,33 @@ npm run serve
 
 也可双击 `启动.bat`（需已配置好 `dev-tools\env.bat`）。
 
+## 发布到 EdgeOne Pages（推荐国内访问）
+
+1. 打开腾讯云 EdgeOne Pages，选择 **导入 Git 仓库**（GitHub 或 Gitee）。
+2. 选择仓库：`smart-campus-navigation-system`，分支：`main`。
+3. 构建配置：
+   - **安装命令**：`npm install --registry=https://registry.npmmirror.com`
+   - **构建命令**：`npm run build`
+   - **输出目录**：`dist`
+   - **环境变量**（可选）：`PUBLIC_PATH=/`（默认已是根路径，一般不用填）
+4. 开始部署，完成后用控制台给出的域名访问。
+
+> 默认 `npm run build` 的 `publicPath` 为 `/`，适合 EdgeOne。  
+> 若仍要更新 GitHub Pages 子路径站点，本地执行 `npm run build:gh` 再推 `gh-pages`。
+
 ## 发布到 GitHub Pages
 
-1. 把本目录推到 GitHub 仓库（例如仓库名 `campus-navigator-pages`）。
-2. 构建前设置仓库路径（仓库名改成你的）：
+1. 把本目录推到 GitHub 仓库（例如仓库名 `smart-campus-navigation-system`）。
+2. 构建子路径站点：
 
 ```bat
-set PUBLIC_PATH=/campus-navigator-pages/
-npm run build
+npm run build:gh
 ```
 
-若仓库是 `https://用户名.github.io` 这种用户主页仓库，则：
+3. 将生成的 `dist/` 内容推到仓库的 `gh-pages` 分支。
+4. 访问：`https://用户名.github.io/smart-campus-navigation-system/`
 
-```bat
-set PUBLIC_PATH=/
-npm run build
-```
-
-3. 将生成的 `dist/` 内容推到仓库的 `gh-pages` 分支，或在仓库 Settings → Pages 里选择部署 `dist`。
-4. 访问：`https://用户名.github.io/campus-navigator-pages/`
-
-路由使用 **hash 模式**（`#/map`），适合 Pages，无需额外服务器配置。
+路由使用 **hash 模式**（`#/map`），适合静态托管，无需额外服务器配置。
 
 ## 数据同步
 

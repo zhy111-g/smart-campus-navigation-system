@@ -1,10 +1,19 @@
 <template>
-  <div class="map-wrap" @mousemove="onMove" @mouseleave="onLeave">
+  <div
+    class="map-wrap"
+    @mousemove="onMove"
+    @mouseleave="onLeave"
+    @wheel.prevent="onWheel"
+    @touchstart.passive="onTouchStart"
+    @touchmove.prevent="onTouchMove"
+    @touchend="onTouchEnd"
+  >
     <canvas
       ref="canvas"
       class="campus-canvas"
       @click="onClick"
     />
+    <div v-if="isCompact" class="zoom-hint">双指缩放 · 单指拖动</div>
     <div
       v-if="hoverPoi"
       class="hover-tip"
@@ -13,7 +22,7 @@
       <span class="tip-dot" :style="{ background: tipColor }"></span>
       <div class="tip-body">
         <div class="tip-name">{{ hoverPoi.name }}</div>
-        <div class="tip-cat">{{ hoverPoi.category }} · 点击设为起/终点</div>
+        <div class="tip-cat">{{ hoverTipSub }}</div>
       </div>
     </div>
   </div>
@@ -34,7 +43,8 @@ export default {
     segments: { type: Array, default: () => [] },
     startNodeId: Number,
     endNodeId: Number,
-    jinyangY: Number
+    jinyangY: Number,
+    compact: { type: Boolean, default: false }
   },
   data() {
     return {
@@ -42,15 +52,26 @@ export default {
       height: 1000,
       dpr: 1,
       scale: 1,
+      fitScale: 1,
       offsetX: 0,
       offsetY: 0,
+      baseOffsetX: 0,
+      baseOffsetY: 0,
+      userScale: 1,
+      panX: 0,
+      panY: 0,
       viewW: 0,
       viewH: 0,
       hoverPoi: null,
       tipX: 0,
       tipY: 0,
       animOffset: 0,
-      animId: null
+      animId: null,
+      touches: null,
+      lastPinchDist: 0,
+      lastPan: null,
+      touchMoved: false,
+      isCompact: false
     }
   },
   computed: {
@@ -59,6 +80,16 @@ export default {
     },
     hasPath() {
       return (this.segments || []).length > 0
+    },
+    hoverTipSub() {
+      if (!this.hoverPoi) return ''
+      const siblings = this.pois.filter(p => p.nodeId === this.hoverPoi.nodeId)
+      if (siblings.length > 1) {
+        return siblings.map(p => `${p.name}${p.description ? '·' + p.description.replace(/^.*食堂/, '') : ''}`).join(' / ')
+          .replace(/·一二|·三四/g, '·') + ' · 点击设起终点'
+      }
+      const d = this.hoverPoi.description
+      return (d ? d + ' · ' : '') + this.hoverPoi.category + ' · 点击设为起/终点'
     }
   },
   watch: {
@@ -120,11 +151,12 @@ export default {
       const parent = this.$el.parentElement
       if (!parent) return
       const canvas = this.$refs.canvas
-      const availW = Math.max(320, parent.clientWidth || 800)
-      const availH = Math.max(320, parent.clientHeight || 800)
-      this.dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const availW = Math.max(280, parent.clientWidth || 800)
+      const availH = Math.max(220, parent.clientHeight || 800)
+      this.dpr = Math.min(window.devicePixelRatio || 1, 3)
+      this.isCompact = this.compact || availW < 768 || availH < 420
 
-      // 画布铺满地图区
+      // 画布铺满地图区（按设备像素比绘制，避免手机发糊）
       this.viewW = availW
       this.viewH = availH
       canvas.style.width = availW + 'px'
@@ -136,14 +168,24 @@ export default {
       this.$el.style.margin = '0'
 
       // 1:1 等比缩放，完整放入视野（不拉伸）
-      const margin = 12
-      this.scale = Math.min(
+      const margin = this.isCompact ? 6 : 12
+      this.fitScale = Math.min(
         (availW - margin * 2) / this.width,
         (availH - margin * 2) / this.height
       )
-      this.offsetX = (availW - this.width * this.scale) / 2
-      this.offsetY = (availH - this.height * this.scale) / 2
+      this.baseOffsetX = (availW - this.width * this.fitScale) / 2
+      this.baseOffsetY = (availH - this.height * this.fitScale) / 2
+      this.applyViewTransform()
       this.draw()
+    },
+
+    applyViewTransform() {
+      this.scale = this.fitScale * this.userScale
+      // 以地图内容中心为缩放原点，再叠加拖动
+      this.offsetX = this.baseOffsetX + this.panX -
+        (this.width * this.fitScale * (this.userScale - 1)) / 2
+      this.offsetY = this.baseOffsetY + this.panY -
+        (this.height * this.fitScale * (this.userScale - 1)) / 2
     },
 
     // 地图坐标 → 屏幕坐标（统一比例，X/Y 相同）
@@ -154,6 +196,74 @@ export default {
     sy(v) { return v * this.scale },
     cssW() { return this.viewW },
     cssH() { return this.viewH },
+
+    clampZoom(z) {
+      return Math.max(1, Math.min(4.5, z))
+    },
+    onWheel(e) {
+      const factor = e.deltaY > 0 ? 0.9 : 1.1
+      this.userScale = this.clampZoom(this.userScale * factor)
+      if (this.userScale <= 1.02) {
+        this.userScale = 1
+        this.panX = 0
+        this.panY = 0
+      }
+      this.applyViewTransform()
+      this.draw()
+    },
+    touchDist(t0, t1) {
+      return Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY)
+    },
+    onTouchStart(e) {
+      this.touchMoved = false
+      if (e.touches.length === 1) {
+        this.lastPan = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+        this.lastPinchDist = 0
+      } else if (e.touches.length >= 2) {
+        this.lastPan = null
+        this.lastPinchDist = this.touchDist(e.touches[0], e.touches[1])
+      }
+    },
+    onTouchMove(e) {
+      if (e.touches.length >= 2) {
+        this.touchMoved = true
+        const dist = this.touchDist(e.touches[0], e.touches[1])
+        if (this.lastPinchDist > 0) {
+          this.userScale = this.clampZoom(this.userScale * (dist / this.lastPinchDist))
+          this.applyViewTransform()
+          this.draw()
+        }
+        this.lastPinchDist = dist
+        this.lastPan = null
+        return
+      }
+      if (e.touches.length === 1 && this.lastPan) {
+        const t = e.touches[0]
+        const dx = t.clientX - this.lastPan.x
+        const dy = t.clientY - this.lastPan.y
+        if (Math.abs(dx) + Math.abs(dy) > 6) this.touchMoved = true
+        if (this.userScale > 1.02) {
+          this.panX += dx
+          this.panY += dy
+          this.lastPan = { x: t.clientX, y: t.clientY }
+          this.applyViewTransform()
+          this.draw()
+        }
+      }
+    },
+    onTouchEnd(e) {
+      if (!e.touches || e.touches.length === 0) {
+        this.lastPan = null
+        this.lastPinchDist = 0
+        if (this.userScale <= 1.02) {
+          this.userScale = 1
+          this.panX = 0
+          this.panY = 0
+          this.applyViewTransform()
+          this.draw()
+        }
+      }
+    },
 
     draw() {
       const canvas = this.$refs.canvas
@@ -254,6 +364,7 @@ export default {
         ? [
           { x: 80, y: 50, w: 220, h: 280, color: 'rgba(143, 181, 122, 0.28)', label: '北区运动' },
           { x: 320, y: 40, w: 280, h: 140, color: 'rgba(43, 108, 176, 0.12)', label: '北区教学' },
+          { x: 400, y: 180, w: 140, h: 140, color: 'rgba(197, 48, 48, 0.10)', label: '食堂区' },
           { x: 420, y: 300, w: 160, h: 280, color: 'rgba(47, 133, 90, 0.14)', label: '1-4号宿舍' },
           { x: 580, y: 160, w: 80, h: 320, color: 'rgba(47, 133, 90, 0.12)', label: '行字宿舍' },
           { x: 740, y: 120, w: 120, h: 260, color: 'rgba(47, 133, 90, 0.12)', label: '东区宿舍' },
@@ -508,21 +619,43 @@ export default {
     },
 
     drawBuildings(ctx) {
-      // 悬停时：先画淡化建筑，再画高亮建筑
-      const list = this.pois.slice().sort((a, b) => {
-        const ah = this.hoverPoi && this.hoverPoi.id === a.id ? 1 : 0
-        const bh = this.hoverPoi && this.hoverPoi.id === b.id ? 1 : 0
+      // 同节点多 POI（如一二食堂同楼）只画一座，标签合并
+      const byNode = {}
+      this.pois.forEach(poi => {
+        if (!byNode[poi.nodeId]) byNode[poi.nodeId] = []
+        byNode[poi.nodeId].push(poi)
+      })
+      const groups = Object.keys(byNode).map(id => {
+        const list = byNode[id]
+        const names = list.map(p => p.name)
+        let label = list[0].name
+        if (names.includes('一食堂') && names.includes('二食堂')) label = '一二食堂'
+        else if (names.includes('三食堂') && names.includes('四食堂')) label = '三四食堂'
+        else if (label.length > 7) label = label.slice(0, 7) + '…'
+        return {
+          nodeId: Number(id),
+          pois: list,
+          displayPoi: list[0],
+          label,
+          tip: list.length > 1
+            ? list.map(p => `${p.name}（${(p.description || '').replace(/.*食堂/, '') || p.description}）`).join(' / ')
+            : null
+        }
+      }).sort((a, b) => {
+        const ah = this.hoverPoi && a.pois.some(p => p.id === this.hoverPoi.id) ? 1 : 0
+        const bh = this.hoverPoi && b.pois.some(p => p.id === this.hoverPoi.id) ? 1 : 0
         return ah - bh
       })
 
-      list.forEach(poi => {
-        const node = this.nodes.find(n => n.id === poi.nodeId)
+      groups.forEach(group => {
+        const poi = group.displayPoi
+        const node = this.nodes.find(n => n.id === group.nodeId)
         if (!node) return
         const [x, y] = this.toCanvas(node.x, node.y)
         const cat = getCategory(poi.category)
         const isStart = node.id === this.startNodeId
         const isEnd = node.id === this.endNodeId
-        const isHover = this.hoverPoi && this.hoverPoi.id === poi.id
+        const isHover = this.hoverPoi && group.pois.some(p => p.id === this.hoverPoi.id)
         const faded = this.hoverPoi && !isHover && !isStart && !isEnd
 
         ctx.save()
@@ -537,14 +670,16 @@ export default {
         } else if (/体育馆|球馆/.test(poi.name)) {
           this.drawGymnasium(ctx, x, y, cat, isHover || isStart || isEnd)
         } else {
-          this.drawNormalBuilding(ctx, x, y, poi, cat, isStart, isEnd, isHover)
+          this.drawNormalBuilding(ctx, x, y, { ...poi, name: group.label }, cat, isStart, isEnd, isHover)
         }
 
-        const label = poi.name.length > 7 ? poi.name.slice(0, 7) + '…' : poi.name
-        const offsetY = /操场|田径/.test(poi.name)
-          ? this.sy(28)
-          : this.sy(this.buildingSize(poi.category)[1] / 2 + 4)
-        this.drawLabelChip(ctx, x, y + offsetY, label, '#292524', true, cat.color)
+        const showLabel = !this.isCompact || this.userScale >= 1.25 || isHover || isStart || isEnd
+        if (showLabel) {
+          const offsetY = /操场|田径/.test(poi.name)
+            ? this.sy(28)
+            : this.sy(this.buildingSize(poi.category)[1] / 2 + 4)
+          this.drawLabelChip(ctx, x, y + offsetY, group.label, '#292524', true, cat.color)
+        }
         ctx.restore()
       })
     },
@@ -728,10 +863,11 @@ export default {
       return '#' + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1)
     },
 
-    // 适中偏大字号：约 13px
+    // 字号随缩放略增，手机端保证可读
     fontPx(base = 13) {
-      const n = Math.round(base + (this.scale - 0.75) * 2)
-      return Math.max(12, Math.min(14, n))
+      const bump = this.isCompact ? 1.5 : 0
+      const n = Math.round(base + bump + (this.scale - 0.4) * 4)
+      return Math.max(this.isCompact ? 11 : 12, Math.min(18, n))
     },
 
     drawLabelChip(ctx, x, y, text, color, centered, accent) {
@@ -829,19 +965,24 @@ export default {
 
     drawChrome(ctx, w, h) {
       this.drawTitleBar(ctx)
-      this.drawLegend(ctx, w, h)
-      this.drawCompass(ctx, w - 50, 52)
-      this.drawScaleBar(ctx, w - 148, h - 36)
+      if (!this.isCompact || this.userScale <= 1.05) {
+        this.drawLegend(ctx, w, h)
+      }
+      this.drawCompass(ctx, w - (this.isCompact ? 36 : 50), this.isCompact ? 40 : 52)
+      if (!this.isCompact) {
+        this.drawScaleBar(ctx, w - 148, h - 36)
+      }
     },
 
     drawTitleBar(ctx) {
       const name = this.campusName || '校园地图'
       ctx.save()
-      ctx.font = '600 16px "Microsoft YaHei"'
+      const fs = this.isCompact ? 13 : 16
+      ctx.font = `600 ${fs}px "Microsoft YaHei"`
       const tw = ctx.measureText(name).width
-      const barW = tw + 30
-      const barH = 36
-      const x = 16, y = 14
+      const barW = tw + (this.isCompact ? 22 : 30)
+      const barH = this.isCompact ? 28 : 36
+      const x = 10, y = 10
       ctx.fillStyle = 'rgba(255,255,255,0.96)'
       this.roundRect(ctx, x, y, barW, barH, 6)
       ctx.fill()
@@ -849,53 +990,61 @@ export default {
       ctx.lineWidth = 1
       ctx.stroke()
       ctx.fillStyle = SXUFE.red
-      ctx.fillRect(x, y, 4, barH)
+      ctx.fillRect(x, y, 3, barH)
       ctx.fillStyle = '#1C1917'
-      ctx.fillText(name, x + 14, y + 24)
+      ctx.fillText(name, x + 12, y + (this.isCompact ? 19 : 24))
       ctx.restore()
     },
 
     drawLegend(ctx, w, h) {
-      const items = [
-        getCategory('教学'),
-        getCategory('宿舍'),
-        getCategory('餐饮'),
-        getCategory('出入口'),
-        getCategory('运动'),
-        { color: '#C8BBA8', label: '主路', line: true },
-        { color: SXUFE.red, label: '规划路径', line: true }
-      ]
-      const lw = 124
-      const rowH = 19
-      const lh = 26 + items.length * rowH
-      const lx = 16, ly = h - lh - 16
+      const items = this.isCompact
+        ? [
+          getCategory('教学'),
+          getCategory('宿舍'),
+          getCategory('餐饮'),
+          getCategory('出入口'),
+          { color: SXUFE.red, label: '规划路径', line: true }
+        ]
+        : [
+          getCategory('教学'),
+          getCategory('宿舍'),
+          getCategory('餐饮'),
+          getCategory('出入口'),
+          getCategory('运动'),
+          { color: '#C8BBA8', label: '主路', line: true },
+          { color: SXUFE.red, label: '规划路径', line: true }
+        ]
+      const lw = this.isCompact ? 100 : 124
+      const rowH = this.isCompact ? 16 : 19
+      const lh = (this.isCompact ? 20 : 26) + items.length * rowH
+      const lx = 10, ly = h - lh - 10
       ctx.save()
-      ctx.fillStyle = 'rgba(255,255,255,0.96)'
+      ctx.fillStyle = 'rgba(255,255,255,0.94)'
       this.roundRect(ctx, lx, ly, lw, lh, 6)
       ctx.fill()
       ctx.strokeStyle = '#E7E5E4'
       ctx.lineWidth = 1
       ctx.stroke()
       ctx.fillStyle = '#57534E'
-      ctx.font = '600 13px "Microsoft YaHei"'
-      ctx.fillText('图例', lx + 12, ly + 18)
+      ctx.font = `600 ${this.isCompact ? 11 : 13}px "Microsoft YaHei"`
+      ctx.fillText('图例', lx + 10, ly + (this.isCompact ? 14 : 18))
       items.forEach((item, i) => {
-        const y = ly + 34 + i * rowH
+        const y = ly + (this.isCompact ? 28 : 34) + i * rowH
         if (item.line) {
           ctx.strokeStyle = item.color
           ctx.lineWidth = item.label === '主路' ? 4 : 3
           ctx.beginPath()
-          ctx.moveTo(lx + 12, y - 3)
-          ctx.lineTo(lx + 28, y - 3)
+          ctx.moveTo(lx + 10, y - 3)
+          ctx.lineTo(lx + 24, y - 3)
           ctx.stroke()
         } else {
           ctx.fillStyle = item.color
-          this.roundRect(ctx, lx + 12, y - 9, 12, 9, 2)
+          this.roundRect(ctx, lx + 10, y - 8, 10, 8, 2)
           ctx.fill()
         }
         ctx.fillStyle = '#292524'
-        ctx.font = '13px "Microsoft YaHei"'
-        ctx.fillText(item.label, lx + 32, y)
+        ctx.font = `${this.isCompact ? 11 : 13}px "Microsoft YaHei"`
+        ctx.fillText(item.label, lx + 28, y)
       })
       ctx.restore()
     },
@@ -998,6 +1147,10 @@ export default {
         if (!node) return
         const d = Math.hypot(node.x - cx, node.y - cy)
         if (d < minDist) { minDist = d; nearest = poi }
+        else if (nearest && d === minDist && poi.nodeId === nearest.nodeId) {
+          // 同楼多食堂时优先一层（一/三）
+          if (/^[一三]食堂$/.test(poi.name)) nearest = poi
+        }
       })
       return nearest
     },
@@ -1023,6 +1176,10 @@ export default {
     },
 
     onClick(e) {
+      if (this.touchMoved) {
+        this.touchMoved = false
+        return
+      }
       const { cx, cy } = this.eventToMap(e)
       const nearest = this.findNearestPoi(cx, cy, 50)
       if (nearest) this.$emit('poi-click', nearest)
@@ -1045,6 +1202,21 @@ export default {
   width: 100%;
   height: 100%;
   cursor: crosshair;
+  touch-action: none;
+}
+.zoom-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 4;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(28, 25, 23, 0.55);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  line-height: 1.2;
 }
 .hover-tip {
   position: absolute;

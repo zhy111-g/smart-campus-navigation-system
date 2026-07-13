@@ -2,12 +2,13 @@
   "name": "campus-navigator-pages",
   "version": "1.0.0",
   "private": true,
-  "description": "校园智能路径导航辅助系统 V1.0 — 纯前端版（可托管 GitHub Pages）",
+  "description": "校园智能路径导航辅助系统 V1.0 — 纯前端版（GitHub Pages / EdgeOne Pages）",
   "scripts": {
     "data": "node scripts/convert-data.js",
     "serve": "npm run data && vue-cli-service serve",
     "build": "npm run data && vue-cli-service build",
-    "build:pages": "npm run data && vue-cli-service build"
+    "build:edgeone": "npm run data && vue-cli-service build",
+    "build:gh": "npm run data && node -e \"process.env.PUBLIC_PATH='/smart-campus-navigation-system/';require('child_process').execSync('npx vue-cli-service build',{stdio:'inherit',env:process.env})\""
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -20,5 +21,8 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "vue-template-compiler": "^2.6.14"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }

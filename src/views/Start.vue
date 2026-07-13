@@ -355,13 +355,15 @@ export default {
 }
 
 @media (max-width: 640px) {
-  .topbar { padding: 18px 20px; }
-  .emblem-wrap { width: 148px; height: 148px; margin-bottom: 22px; }
+  .topbar { padding: 14px 16px; }
+  .emblem-wrap { width: 112px; height: 112px; margin-bottom: 16px; }
   .tag-rule { width: 24px; }
-  .actions { width: 100%; max-width: 300px; flex-direction: column; }
+  .actions { width: 100%; max-width: 300px; flex-direction: column; margin-top: 8px; }
   .btn-primary, .btn-ghost { width: 100%; }
   .route-art { opacity: 0.5; }
-  .brand-name { letter-spacing: 0.04em; }
+  .brand-name { letter-spacing: 0.04em; font-size: 1.35rem; }
   .tagline { letter-spacing: 0.16em; }
+  .hero { padding: 12px 20px 24px; }
+  .foot { padding-bottom: 16px; }
 }
 </style>

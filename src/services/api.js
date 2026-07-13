@@ -2,14 +2,14 @@
  * 纯前端数据与路径服务（替代原 Spring Boot API）
  */
 import { findPath } from './pathfinding'
+import { publicUrl } from '@/utils/publicUrl'
 
 const HISTORY_KEY = 'campus-nav-history-v1'
 let cache = null
 
 async function loadData() {
   if (cache) return cache
-  const base = process.env.BASE_URL || '/'
-  const res = await fetch(`${base}data/campus-data.json`)
+  const res = await fetch(publicUrl('data/campus-data.json'))
   if (!res.ok) throw new Error('加载校区数据失败')
   cache = await res.json()
   return cache

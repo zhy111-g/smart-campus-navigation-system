@@ -8,6 +8,16 @@ const path = require('path')
 const sqlPath = path.join(__dirname, '..', '..', 'campus-navigator', 'backend', 'src', 'main', 'resources', 'data.sql')
 const outPath = path.join(__dirname, '..', 'public', 'data', 'campus-data.json')
 
+if (!fs.existsSync(sqlPath)) {
+  // 云端构建（EdgeOne/GitHub Actions）仓库内无原后端 SQL，沿用已提交的 JSON
+  if (fs.existsSync(outPath)) {
+    console.log('SKIP convert-data: no data.sql, keep existing campus-data.json')
+    process.exit(0)
+  }
+  console.error('ERROR: missing data.sql and campus-data.json')
+  process.exit(1)
+}
+
 const text = fs.readFileSync(sqlPath, 'utf8')
 
 const campuses = [

@@ -3,21 +3,24 @@
     <header class="header">
       <div class="header-inner">
         <div class="brand" @click="goHome" title="返回首页">
-          <school-emblem :size="34"/>
+          <school-emblem :size="30"/>
           <div>
-            <div class="brand-title">校园智能路径导航辅助系统</div>
+            <div class="brand-title">
+              <span class="title-full">校园智能路径导航辅助系统</span>
+              <span class="title-short">校园路径导航</span>
+            </div>
             <div class="brand-sub">山西财经大学 · V1.0</div>
           </div>
         </div>
         <nav class="nav">
           <router-link to="/map" class="nav-item">
-            <i class="el-icon-map-location"></i> 路径规划
+            <i class="el-icon-map-location"></i><span>规划</span>
           </router-link>
           <router-link to="/history" class="nav-item">
-            <i class="el-icon-time"></i> 导航历史
+            <i class="el-icon-time"></i><span>历史</span>
           </router-link>
         </nav>
-        <button type="button" class="home-btn" @click="goHome">返回首页</button>
+        <button type="button" class="home-btn" @click="goHome">首页</button>
       </div>
     </header>
     <main class="main">
@@ -87,6 +90,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.title-short { display: none; }
 .brand-sub {
   color: rgba(255,255,255,0.72);
   font-size: 11px;
@@ -103,6 +107,9 @@ export default {
   padding: 7px 14px;
   border-radius: 6px;
   font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   transition: background 0.15s, color 0.15s;
 }
 .nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
@@ -137,7 +144,33 @@ export default {
   min-height: 0;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
+  .header-inner {
+    height: 48px;
+    padding: 0 8px;
+    gap: 6px;
+  }
+  .brand { gap: 6px; flex: 1; min-width: 0; }
+  .brand-title { font-size: 13px; }
   .brand-sub { display: none; }
+  .title-full { display: none; }
+  .title-short { display: inline; }
+  .nav { gap: 0; flex-shrink: 0; }
+  .nav-item {
+    padding: 6px 8px;
+    font-size: 12px;
+    min-height: 32px;
+  }
+  .nav-item i { margin-right: 0; }
+  .home-btn {
+    height: 32px;
+    padding: 0 8px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .brand-title::after { content: none; }
 }
 </style>

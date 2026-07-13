@@ -1,13 +1,13 @@
 const { defineConfig } = require('@vue/cli-service')
 
-// GitHub Pages 部署时设置环境变量：
-//   set PUBLIC_PATH=/你的仓库名/
-// 本地开发保持默认 ./
-const publicPath = process.env.PUBLIC_PATH || './'
+// 默认挂在站点根路径（EdgeOne / Cloudflare / 本地均适用）
+ // GitHub Pages 项目站构建时设置：PUBLIC_PATH=/smart-campus-navigation-system/
+const isServe = process.argv.some(a => a === 'serve')
+const publicPath = process.env.PUBLIC_PATH || '/'
 
 module.exports = defineConfig({
   transpileDependencies: true,
-  publicPath,
+  publicPath: isServe ? '/' : publicPath,
   productionSourceMap: false,
   devServer: {
     host: '0.0.0.0',

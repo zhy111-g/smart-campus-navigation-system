@@ -10,15 +10,17 @@
 </template>
 
 <script>
+import emblemUrl from '@/assets/sxufe-emblem.png'
+
 export default {
   name: 'SchoolEmblem',
   props: {
     size: { type: [Number, String], default: 48 }
   },
   computed: {
-    // 使用 public 目录，避免 webpack 打包失败导致整页白屏
     emblemSrc() {
-      return (process.env.BASE_URL || '/') + 'sxufe-emblem.png'
+      // webpack 打包进 assets，随 publicPath 自动带上正确前缀
+      return emblemUrl
     }
   }
 }
