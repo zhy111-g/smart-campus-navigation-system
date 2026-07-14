@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 
-// 默认挂在站点根路径（EdgeOne / Cloudflare / 本地均适用）
- // GitHub Pages 项目站构建时设置：PUBLIC_PATH=/smart-campus-navigation-system/
+// Default: site root (EdgeOne / Cloudflare / local).
+// For GitHub project Pages only: PUBLIC_PATH=/smart-campus-navigation-system/
 const isServe = process.argv.some(a => a === 'serve')
 const publicPath = process.env.PUBLIC_PATH || '/'
 

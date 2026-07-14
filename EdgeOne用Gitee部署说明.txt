@@ -1,0 +1,17 @@
+EdgeOne Pages + Gitee
+
+1) Sync code to Gitee (pick one)
+   A. Double-click: 推送到Gitee.bat
+      - Token: https://gitee.com/profile/personal_access_tokens
+   B. On Gitee website: open repo and "force sync from GitHub"
+
+   Check vue.config.js has:
+     const publicPath = process.env.PUBLIC_PATH || '/'
+
+2) EdgeOne
+   - Import Git -> Gitee
+   - Repo: zzz111hhh/smart-campus-navigation-system
+   - Branch: main (NOT gh-pages)
+   - Install: npm install --registry=https://registry.npmmirror.com
+   - Build: npm run build
+   - Output: dist
