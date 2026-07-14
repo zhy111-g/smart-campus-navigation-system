@@ -1,77 +1,115 @@
-# 校园智能路径导航辅助系统 V1.0（纯前端 / GitHub Pages 版）
+# 校园智能路径导航辅助系统 V1.0
 
-> 本目录为**独立新项目**，不修改、不依赖原 `campus-navigator` 的 Java 后端。  
-> 界面与算法效果与现有系统对齐：双校区地图、Dijkstra / A*、晋阳街天桥、导航历史。
+## 项目简介
 
-## 和原版的区别
+本系统面向校园场景，提供基于路网模型的路径规划与导航辅助能力。用户可在校园地图上检索地点、选定起终点，系统基于最短路径算法计算步行路线，并展示路径详情与途经信息。系统支持双校区切换，并针对跨区域通行约束（如天桥通道）进行建模。
 
-| | 原版 `campus-navigator` | 本版 `campus-navigator-pages` |
-|--|--|--|
-| 后端 | Spring Boot + H2 | 无（浏览器内算路） |
-| 数据 | data.sql | `public/data/campus-data.json` |
-| 历史 | 数据库 | localStorage |
-| 部署 | 本机双端口 | 可 GitHub Pages |
+## 主要功能
 
-原版请继续用原来的启动方式；本版互不影响。
+- 用户登录与权限访问
+- 双校区校园地图浏览与地点检索
+- 智能路径规划（Dijkstra / A*）
+- 路径详情展示（距离、途经点、关键路段提示）
+- 跨区通行约束处理（如晋阳街天桥）
+- 导航历史记录查询
+
+## 技术架构
+
+| 项目 | 说明 |
+|------|------|
+| 前端框架 | Vue 2 |
+| UI 组件 | Element UI |
+| 路由 | Vue Router（Hash 模式） |
+| 算法模块 | Dijkstra、A* 最短路径计算 |
+| 地图数据 | JSON 结构化路网与 POI 数据 |
+| 构建工具 | Vue CLI |
+
+## 在线访问
+
+GitHub Pages：
+
+https://zhy111-g.github.io/smart-campus-navigation-system/
+
+演示账号：`admin` / `123456`
 
 ## 本地运行
 
-1. 安装依赖（可用原项目的 Node）：
+### 环境要求
 
-```bat
-cd campus-navigator-pages
+- Node.js 16 及以上版本
+- npm
+
+### 安装依赖
+
+```bash
 npm install --registry=https://registry.npmmirror.com
 ```
 
-2. 启动：
+### 启动开发服务
 
-```bat
+```bash
 npm run serve
 ```
 
-浏览器打开终端提示的地址（默认 **http://localhost:8088**）。
+启动后在浏览器访问终端提示地址（默认 `http://localhost:8088`）。
 
-也可双击 `启动.bat`（需已配置好 `dev-tools\env.bat`）。
+也可在已配置开发环境的前提下，使用 `启动.bat` 启动。
 
-## 发布到 EdgeOne Pages（推荐，用 Gitee）
+### 生产构建
 
-1. 打开腾讯云 EdgeOne Pages → **导入 Git 仓库** → 选 **Gitee** 并授权。
-2. 仓库选：`zzz111hhh/smart-campus-navigation-system`，分支：`main`。
-3. 构建配置填：
-   - **安装命令**：`npm install --registry=https://registry.npmmirror.com`
-   - **构建命令**：`npm run build`
-   - **输出目录**：`dist`
-   - 环境变量一般不用填（默认 `PUBLIC_PATH=/`）
-4. 开始部署，用控制台给出的域名访问。
+```bash
+npm run build
+```
 
-> 不要选 `gh-pages` 分支（那是给 GitHub Pages 用的静态成品）。EdgeOne 要从 `main` 源码自己构建。
+构建产物输出至 `dist` 目录。
 
-## 发布到 GitHub Pages
+面向 GitHub Pages 子路径部署时，可执行：
 
-1. 把本目录推到 GitHub 仓库（例如仓库名 `smart-campus-navigation-system`）。
-2. 构建子路径站点：
-
-```bat
+```bash
 npm run build:gh
 ```
 
-3. 将生成的 `dist/` 内容推到仓库的 `gh-pages` 分支。
-4. 访问：`https://用户名.github.io/smart-campus-navigation-system/`
+## 部署说明
 
-路由使用 **hash 模式**（`#/map`），适合静态托管，无需额外服务器配置。
+### GitHub Pages
 
-## 数据同步
+1. 执行 `npm run build:gh` 生成静态资源。
+2. 将 `dist` 目录内容发布至仓库的 `gh-pages` 分支。
+3. 在仓库 Settings → Pages 中启用该分支。
+4. 通过 `https://<用户名>.github.io/smart-campus-navigation-system/` 访问。
 
-校区数据来自原项目 `campus-navigator/backend/.../data.sql`。  
-修改原版地图后，在本目录执行：
+### 腾讯云 EdgeOne Pages
 
-```bat
+1. 导入本 Git 仓库（可使用 Gitee 镜像仓库），选择 `main` 分支。
+2. 构建配置建议如下：
+   - 安装命令：`npm install --registry=https://registry.npmmirror.com`
+   - 构建命令：`npm run build`
+   - 输出目录：`dist`
+3. 完成部署后，使用平台分配的访问域名进行访问。
+
+## 数据说明
+
+校园路网、地点与连通关系保存在 `public/data/campus-data.json`。  
+若基础地图数据发生变更，可执行以下命令重新生成数据文件：
+
+```bash
 npm run data
 ```
 
-会重新生成 `public/data/campus-data.json`。
+## 目录结构
 
-## 说明
+```text
+├── public/                 # 静态资源与校园数据
+├── scripts/                # 数据转换脚本
+├── src/                    # 业务源码
+│   ├── components/         # 地图等组件
+│   ├── services/           # 接口与路径规划服务
+│   ├── views/              # 页面视图
+│   └── router/             # 路由配置
+├── package.json
+└── vue.config.js
+```
 
-- 纯前端版适合演示与 GitHub 托管；软著若交「前后端分离」材料，请以原版 `campus-navigator` 为准。
-- 导航历史保存在浏览器本地，换设备不会同步。
+## 许可证
+
+本项目采用木兰宽松许可证第 2 版（Mulan PSL v2），详见 [LICENSE](./LICENSE)。
