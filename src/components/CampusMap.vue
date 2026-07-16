@@ -673,7 +673,8 @@ export default {
           this.drawNormalBuilding(ctx, x, y, { ...poi, name: group.label }, cat, isStart, isEnd, isHover)
         }
 
-        const showLabel = !this.isCompact || this.userScale >= 1.25 || isHover || isStart || isEnd
+        // 手机端初始也显示建筑名称（不再依赖放大）
+        const showLabel = true
         if (showLabel) {
           const offsetY = /操场|田径/.test(poi.name)
             ? this.sy(28)
